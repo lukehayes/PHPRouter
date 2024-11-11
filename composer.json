@@ -1,0 +1,19 @@
+{
+    "name": "ldh/Router",
+    "autoload": {
+        "psr-4": {
+            "LDHRouter\\": "src/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "LDH"
+        }
+    ],
+
+    "require-dev": {
+        "symfony/var-dumper": "^6.1",
+        "phpunit/phpunit": "^9.5"
+    }
+}
