@@ -1,5 +1,5 @@
 <?php
-namespace PHPMin;
+namespace LDH;
 
 class Router
 {
@@ -135,7 +135,7 @@ class Router
         }else if(is_string($action))
         {
             $sections   = explode("@", $action);
-            $namespace  = "PHPMin\\";
+            $namespace  = "LDH\\";
             $controller = $namespace . $sections[0];
             $controller = new $controller;
             $action     = $sections[1];
