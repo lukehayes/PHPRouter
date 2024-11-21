@@ -56,6 +56,7 @@ class Router
         $this->loadRoutes($methods, $pattern, $fn);
     }
 
+
     /**
      * Load all of the defined routes into the internal routes array.
      *
@@ -90,7 +91,7 @@ class Router
      *
      * @return bool.
      */
-    private function matchedRoute(array $routes) : bool
+    public function matchedRoute(array $routes) : bool
     {
         // Check if a pattern matches using a regex.
         foreach($routes as $pattern => $fn)
@@ -123,7 +124,7 @@ class Router
      *
      * @return bool.
      */
-    private function matchAction($action) : bool
+    public function matchAction($action, string $namespace = "LDH") : bool
     {
         if(is_int($action) || is_array($action)) return false;
 
@@ -135,7 +136,7 @@ class Router
         }else if(is_string($action))
         {
             $sections   = explode("@", $action);
-            $namespace  = "LDH\\";
+            $namespace  = "$namespace\\";
             $controller = $namespace . $sections[0];
             $controller = new $controller;
             $action     = $sections[1];
