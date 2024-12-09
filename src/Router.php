@@ -22,10 +22,10 @@ class Router
     private $method = NULL;
 
     /**
-     * @var string $route_found.
+     * @var bool $route_found.
      *
      * True when a route has been found. False otherwise. */
-    private $route_found = false;
+    private bool $route_found = false;
 
 
     /**
