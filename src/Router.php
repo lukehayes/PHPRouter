@@ -130,8 +130,8 @@ class Router
 
         if(is_callable($action))
         {
-            $action();
-            return true;
+            // call_user_func_array returns false on failiure.
+            return call_user_func_array($action, []);
 
         }else if(is_string($action))
         {
