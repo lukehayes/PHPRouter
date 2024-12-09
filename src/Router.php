@@ -49,11 +49,11 @@ class Router
      * @param mixed  $fn         Closure or "nameController@method" can be used
      *                           for the defined route.
      *
-     * @return array.
+     * @return array
      */
     public function addRoute($methods, $pattern, $fn)
     {
-        $this->loadRoutes($methods, $pattern, $fn);
+        return $this->loadRoutes($methods, $pattern, $fn);
     }
 
 
@@ -69,7 +69,7 @@ class Router
      * @param mixed  $fn         Closure or "nameController@method" can be used
      *                           for the defined route.
      *
-     * @return array.
+     * @return array
      */
     private function loadRoutes($methods, $pattern, $fn) : array
     {
@@ -89,7 +89,7 @@ class Router
      *
      * @param array $routes    The routes for the current REQUEST_METHOD.
      *
-     * @return bool.
+     * @return bool
      */
     public function matchedRoute(array $routes) : bool
     {
@@ -122,7 +122,7 @@ class Router
      * @param  mixed $action    Closure or "controller@action" string that will be
      *                          used for the current route.
      *
-     * @return bool.
+     * @return bool
      */
     public function matchAction($action, string $namespace = "LDH") : bool
     {
@@ -152,9 +152,9 @@ class Router
      * Run the router. Check if the incoming route matches any of the routes
      * defined inside if the router object.
      *
-     * @throws Exception if a route could not be found.
+     * @throws \Exception if a route could not be found.
      *
-     * @return bool.
+     * @return bool
      */
     public function run()
     {
@@ -173,7 +173,7 @@ class Router
     /**
      * Get a list of all defined routes.
      *
-     * @return array.
+     * @return array
      */
     public function getRoutes() : array
     {
