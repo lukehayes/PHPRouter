@@ -1,6 +1,8 @@
 <?php
 namespace LDH;
 
+use LDH\Server;
+
 class Router
 {
     /**
@@ -33,8 +35,9 @@ class Router
      **/
     public function __construct()
     {
-        $this->uri     = $_SERVER['REQUEST_URI'];
-        $this->method  = $_SERVER['REQUEST_METHOD'];
+
+        $this->uri    = Server::$REQUEST_URI;
+        $this->method = Server::$REQUEST_METHOD;
     }
 
 
