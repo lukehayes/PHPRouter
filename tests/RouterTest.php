@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
-use PHPMin\Router;
+use LDH\Router;
 
 final class RouterTest extends TestCase
 {
