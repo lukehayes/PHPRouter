@@ -7,7 +7,7 @@ final class RouterTest extends TestCase
 {
     private $router;
 
-    public function __construct()
+    public function setUp() : void
     {
         $this->router = new Router();
     }
