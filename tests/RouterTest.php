@@ -12,11 +12,26 @@ final class RouterTest extends TestCase
         $this->router = new Router();
     }
 
-    public function testCanSplitRequestMethods(): void
-    {
-        $this->assertEqual(
-            $this->router->defineRoutes("GET|POST|PATCH"),
-            ["GET", "POST", "PATCH"]
-        );
-    }
+	public function testCanGetRoutes()
+	{
+		$this->assertIsArray(
+			$this->router->getRoutes()
+		);
+	}
+
+	public function testHasGetRouteKey()
+	{
+		$this->assertArrayHasKey(
+			'GET',
+			$this->router->getRoutes()
+		);
+	}
+
+	public function testHasPostRouteKey()
+	{
+		$this->assertArrayHasKey(
+			'POST',
+			$this->router->getRoutes()
+		);
+	}
 }
