@@ -33,8 +33,10 @@ class Router
      **/
     public function __construct()
     {
-        $this->uri     = $_SERVER['REQUEST_URI'];
-        $this->method  = $_SERVER['REQUEST_METHOD'];
+        $this->uri            = $_SERVER['REQUEST_URI'];
+        $this->method         = $_SERVER['REQUEST_METHOD'];
+		$this->routes['GET']  = [];
+		$this->routes['POST'] = [];
     }
 
 
