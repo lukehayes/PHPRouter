@@ -84,6 +84,23 @@ class Router
         return $this->routes;
     }
 
+    /**
+     * Add GET route.
+     *
+     * @param string $path    The path of the route
+     *
+     * @param mixed  $fn         Closure or "nameController@method" can be used
+     *                           for the defined route.
+     *
+     * @return array.
+     */
+	public function get($path, callable $fn)
+	{
+		if( ! array_key_exists($path, $this->routes['GET']))
+		{
+			$this->routes['GET'][$path]  = $fn;
+		}
+	}
 
     /**
      * Try to match a defined route with the current REQUEST_URI.
