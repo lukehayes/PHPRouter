@@ -31,10 +31,10 @@ class Router
     /**
      * Constructor.
      **/
-    public function __construct()
+    public function __construct(array $server)
     {
-        $this->uri            = $_SERVER['REQUEST_URI'];
-        $this->method         = $_SERVER['REQUEST_METHOD'];
+        $this->uri            = $server['REQUEST_URI'];
+        $this->method         = $server['REQUEST_METHOD'];
 		$this->routes['GET']  = [];
 		$this->routes['POST'] = [];
     }
