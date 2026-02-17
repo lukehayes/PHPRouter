@@ -168,17 +168,23 @@ class Router
         return false;
     }
 
-    /**
-     * Run the router. Check if the incoming route matches any of the routes
-     * defined inside if the router object.
-     *
-     * @throws Exception if a route could not be found.
-     *
-     * @return bool.
-     */
+	/**
+	 * Executes the router.
+	 *
+	 * Checks whether the incoming request URI matches any of the
+	 * routes defined within the router instance and dispatches
+	 * the corresponding handler.
+	 *
+	 * @throws \Exception If no routes have been defined.
+	 * @throws \Exception If no matching route is found.
+	 *
+	 * @return bool True on successful route dispatch.
+	 */
     public function run()
     {
-		dump($this);
+		if(empty($this->routes[$this->method]))
+			throw new \Exception('No routes have been defined yet!');
+
         $routes  = $this->routes[$this->method];
 
         if($this->matchedRoute($routes))
