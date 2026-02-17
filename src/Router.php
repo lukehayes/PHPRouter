@@ -1,6 +1,8 @@
 <?php
 namespace LDH;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class Router
 {
     /**
@@ -31,10 +33,10 @@ class Router
     /**
      * Constructor.
      **/
-    public function __construct(array $server)
+    public function __construct(public Request $request)
     {
-        $this->uri            = $server['REQUEST_URI'];
-        $this->method         = $server['REQUEST_METHOD'];
+		$this->uri            = $request->server->get('REQUEST_URI');
+		$this->method         = $request->server->get('REQUEST_METHOD');
 		$this->routes['GET']  = [];
 		$this->routes['POST'] = [];
     }
@@ -176,6 +178,7 @@ class Router
      */
     public function run()
     {
+		dump($this);
         $routes  = $this->routes[$this->method];
 
         if($this->matchedRoute($routes))
